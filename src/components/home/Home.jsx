@@ -15,7 +15,7 @@ const Home = ({ isMobileNavOpen }) => {
         <div style={{
             opacity: isMobileNavOpen ? ".3" : "1",
         }}>
-            <Artist title={"Behemoth"} subTitle={"Rockstadt Extreme Fest 2024"} />
+            <Artist title={"Behemoth"} subTitle={"Gallery"} />
             {/*  <Banner /> */}
             <Gallery />
         </div>
