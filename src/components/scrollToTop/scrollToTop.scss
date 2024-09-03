@@ -7,15 +7,17 @@
     cursor: pointer;
     border: none;
     color: #fff;
-    z-index: 99;
-    width: 100%;
-    margin-bottom: 3rem;
+    width: 100vw;
+    padding-top: 0rem;
+    padding-bottom: 3rem;
+    position: relative;
+    
     span 
     {
-        font-size: 3rem;
-        z-index: 99;
-        display: flex;
-        width: 100%;
+        font-size: clamp(2rem, 3vw, 3rem);
+       display: flex;
+       overflow: hidden;
         cursor: pointer;
+        width: 100%;
     }
 }

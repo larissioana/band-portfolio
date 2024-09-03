@@ -232,7 +232,6 @@ const Gallery = () => {
                         </div>
                     )}
             </div>
-            <ScrollToTop />
         </>
     )
 }
