@@ -122,7 +122,7 @@ const Gallery = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setOverlayVisible(false);
-        }, 3000);
+        }, 5000); // Set to 5 seconds
 
         return () => clearTimeout(timer);
     }, []);
