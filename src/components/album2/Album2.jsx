@@ -55,7 +55,7 @@ const Album2 = () => {
             <Artist title="Behemoth" subTitle={"Opvs Contra Natvram"} />
             <div className="album-container2">
                 <div className="album2">
-                    <LazyLoadImage effect="blur" src={album} alt="Album" className="album-image2" />
+                    <img src={album} alt="Album" className="album-image2" />
                     <img src={cd} alt="CD" className="cd2" />
                 </div>
             </div>

@@ -12,35 +12,36 @@ const Footer = () => {
                 <div className="left">
                     {
                         isHomeOrShop ?
-
-                            <p>
-                                <a href="https://www.behemoth.pl/" target="_blank">Visit Behemoth's -  Official Website Here</a>
-                            </p>
-                            :
-                            <p style={{
-                                borderBottom: "1.5px outset #FFF",
-                            }}>Visit Behemoth's -  </p>
-                    }
-                </div>
-                <div className="right">
-                    {
-                        isHomeOrShop ?
                             <>
 
                                 <p></p>
                                 <p>
                                     <a href="https://miluta.ro/ro/" target="_blank">
 
-                                    {location.pathname === '/' ? "Photos by" : "photo by"} Miluță Flueraș.
+                                        {location.pathname === '/' ? "Photos by" : "photo by"} Miluță Flueraș.
                                     </a>
                                 </p>
                             </>
                             :
                             <>
-                                <p>
-                                    <a href="https://www.behemoth.pl/" target='_blank'> Official Website Here</a>
-                                </p>
+                                <p style={{
+                                    borderBottom: "1.5px outset #FFF",
+                                }}>Visit Behemoth's -  </p>
                             </>
+                    }
+
+                </div>
+                <div className="right">
+                    {
+                        isHomeOrShop ?
+
+                            <p>
+                                <a href="https://www.behemoth.pl/" target="_blank">Visit Behemoth's -  Official Website Here</a>
+                            </p>
+                            :
+                            <p>
+                                <a href="https://www.behemoth.pl/" target='_blank'> Official Website Here</a>
+                            </p>
                     }
                 </div>
             </div>
