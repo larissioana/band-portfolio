@@ -127,7 +127,7 @@ const Gallery = () => {
         setImageKey((prevKey) => prevKey + 1);
     }, [currentImageIndex]);
 
-    const [imageLoaded, setImageLoaded] = useState({});
+    const [imageLoaded, setImageLoaded] = useState([]);
 
     const handleImageLoad = (index) => {
         setImageLoaded((prev) => ({ ...prev, [index]: true }));
@@ -150,20 +150,26 @@ const Gallery = () => {
                         >
                             {!imageLoaded[index] && (
                                 <Blurhash
-                                    hash={singleBlurhash}
+                                    hash="L69=$^of0g|HXmS29]of0~nP^4TI"
                                     width="100%"
                                     height="100%"
-                                    resolutionX={32}
-                                    resolutionY={32}
-                                    punch={1}
+                                    style={{ position: 'absolute', top: 0, left: 0 }}
                                 />
                             )}
                             <img
                                 src={gallery}
-                                style={{ display: imageLoaded[index] ? 'block' : 'none' }}
-                                onLoad={() => handleImageLoad(index)}
                                 alt="Behemoth Gallery"
                                 className="image"
+                                onLoad={() => handleImageLoad(index)}
+                                style={{
+                                    position: imageLoaded[index] ? 'relative' : 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: 'auto',
+                                    opacity: imageLoaded[index] ? 1 : 0,
+                                    transition: 'opacity 0.5s ease-in-out',
+                                }}
                             />
                         </AnimatedImage>
                         {/* <MotionLazyLoadImage
