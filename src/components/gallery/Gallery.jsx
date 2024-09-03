@@ -87,7 +87,7 @@ const Gallery = () => {
     const [sliderStartIndex, setSliderStartIndex] = useState(0);
     const [imageKey, setImageKey] = useState(0);
     const [allImagesLoaded, setAllImagesLoaded] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState([]);
+    const [imageLoaded, setImageLoaded] = useState(new Set());
     const [overlayVisible, setOverlayVisible] = useState(true);
 
     const nextImage = () => {
@@ -134,10 +134,10 @@ const Gallery = () => {
 
 
     useEffect(() => {
-        if (imageLoaded.length === galleryImages.length) {
+        if (imageLoaded.size === galleryImages.length) {
             setAllImagesLoaded(true);
         }
-    }, [imageLoaded]);
+    }, [imageLoaded])
 
     useEffect(() => {
         const timer = setTimeout(() => {
