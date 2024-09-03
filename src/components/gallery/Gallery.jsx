@@ -135,6 +135,24 @@ const Gallery = () => {
 
     const singleBlurhash = "L69=$^of0g|HXmS29]of0~nP^4TI";
     const AnimatedImage = motion.div;
+
+    useEffect(() => {
+        const loadImagesSequentially = async () => {
+            for (let i = 0; i < galleryImages.length; i++) {
+                const img = new Image();
+                img.src = galleryImages[i];
+                await new Promise((resolve) => {
+                    img.onload = () => {
+                        setLoadedImages((prev) => ({ ...prev, [i]: true }));
+                        resolve();
+                    };
+                });
+            }
+        };
+
+        loadImagesSequentially();
+    }, [galleryImages]);
+
     return (
         <>
             <div className="gallery-container">
