@@ -1,0 +1,30 @@
+.artist-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  0rem 6rem;
+    position: fixed;
+    width: 100vw;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    z-index: 10;
+    overflow: hidden;
+    
+    h2 
+    {
+        text-transform: uppercase;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+    .artist-container
+    {
+    justify-content: center;
+    gap: 6rem;
+    
+    }
+}

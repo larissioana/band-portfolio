@@ -1,0 +1,19 @@
+.scroll-to-top-btn
+{
+    
+    color: black;
+    margin-left: 2rem;
+    text-transform: uppercase;
+    background: none;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    z-index: 99;
+
+    span 
+    {
+        font-size: 3rem;
+        z-index: 99;
+        cursor: pointer;
+    }
+}

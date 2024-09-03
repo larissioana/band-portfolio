@@ -1,0 +1,163 @@
+.gallery-container
+{
+    .image
+    {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+       /*  animation: fadeImg linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 50%;
+        transition: opacity 3s ease-in; */
+    }
+
+    .image.visible
+    {
+        opacity: 1;
+    }
+
+    @keyframes fadeImg 
+    {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100vh;
+        background: rgb(0, 0, 0);
+        padding: 1rem;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 3rem;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .main-image {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+        animation: imageAnim 1s ease-in-out;
+    }
+    
+    .buttons {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        cursor: pointer;
+        align-items: center;
+        span 
+        {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid white;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+        }
+    }
+    
+    .thumbnail-slider {
+        display: flex;
+        overflow-x: auto;
+        margin-top: 1rem;
+        overflow: hidden;
+    }
+    
+    .thumbnail {
+        width: 15rem;
+        height: 15rem;
+        object-fit: cover;
+        margin-right: .5rem;
+        cursor: pointer;
+        border-radius: .2rem;
+        transition: transform 0.3s;
+    }
+    
+    .thumbnail.active {
+        transform: scale(1.1);
+    }
+    
+    .slider-controls {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        span 
+        {
+            cursor: pointer;
+        }
+    }
+    
+}
+
+@keyframes imageAnim 
+{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1200px)
+{
+    .gallery-container
+    {
+        .modal 
+        {
+            .thumbnail-slider
+            {
+                overflow: hidden;
+                img 
+                {
+                width: 7rem;
+                height: 7rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .gallery-container
+    {
+        .modal
+        {
+            .thumbnail-slider
+            {
+                img 
+                {
+                    width: 4rem;
+                    height: 5rem;
+                }
+            }
+        }
+    }
+}

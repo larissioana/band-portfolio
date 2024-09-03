@@ -1,0 +1,100 @@
+
+.album-container
+{
+  position: relative;
+  width: 50%;
+  height: 50%;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.album
+{
+  position: relative;
+  width: 80%;
+  height: 100%;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+  
+.album-image
+{
+  width: 100%;
+  height: auto;
+  backface-visibility: hidden;
+}
+  
+.cd
+{
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  width: 60%;
+  height: auto;
+  transform-origin:center; 
+  z-index: -1;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  animation: rollOutCd 6s infinite ease-in-out;
+}
+
+@keyframes rollOutCd
+{
+  0%
+  {
+    transform: translate(-50%, -50%) rotate(0deg); 
+  }
+  50%
+  {
+    transform: translate(40%, -50%) rotate(180deg);
+  }
+  100%
+  {
+    transform: translate(-50%, -50%) rotate(360deg); 
+  }
+} 
+
+@media screen and (max-width: 1300px)
+{
+    .album-container
+    {
+      .album-image
+      {
+        width: 100%;
+      }
+        .cd
+        {
+          top: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 868px)
+{
+  .album-container 
+  {
+    .album
+    {
+      width: 100%;
+    }
+  .cd
+  {
+    top: 40%;
+    width: 60%;
+  }
+}
+}
+
+@media screen and (max-width: 600px)
+{
+  .album-container
+  {
+    .cd 
+    {
+      top: 25%;
+      width: 60%;
+    }
+  }
+}

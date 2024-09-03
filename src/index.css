@@ -1,0 +1,36 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin; 
+  scrollbar-color: black #1b1b1b;
+  scroll-behavior: smooth;
+}
+
+body 
+{
+  overflow-x: hidden;
+  background: rgb(2, 2, 2);
+  font-family: "MedievalSharp", cursive;
+  color: rgb(240, 237, 237);
+  scroll-behavior: smooth;
+}
+
+img 
+{
+  object-fit: cover;
+}
+
+::-webkit-scrollbar {
+  width: .7rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(15, 15, 15);
+  border-radius: 1rem; 
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; 
+}

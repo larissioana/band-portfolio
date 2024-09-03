@@ -1,0 +1,89 @@
+.album-container2 {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    perspective: 1000px;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.album-tracklist
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 2rem;
+
+    .songs 
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        p 
+        {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+        }
+    }
+    
+}
+  
+.album2 {
+    position: relative;
+    width: 55%;
+    height: 100%;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: rotateY(-0deg) rotateX(0deg);
+}
+  
+.album-image2 {
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+}
+  
+.cd2 {
+    position: absolute;
+    top: 10%;
+    left: 70%; 
+    width: 40%;
+    height: auto;
+    transform-origin: center; 
+    z-index: -1;
+    object-fit: cover;
+
+    animation: slideOutCd 6s infinite ease-in-out;
+}
+
+@keyframes slideOutCd {
+    0% {
+        transform: translateX(0%); 
+    }
+    50% {
+        transform: translateX(60%); 
+    }
+    100% {
+        transform: translateX(0%); 
+    }
+}
+
+@media screen and (max-width: 868px)
+{
+    .album-container2
+    {
+
+        .album-image2
+        {
+            width: 100%;
+        }
+            .cd2 
+            {
+               display: none;
+               
+            }
+        
+    }
+}
