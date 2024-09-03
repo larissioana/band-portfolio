@@ -29,7 +29,7 @@
 .cd
 {
   position: absolute;
-  top: 73%;
+  top: 77%;
   left: 50%;
   width: 60%;
   height: auto;
@@ -81,7 +81,7 @@
     }
   .cd
   {
-    top: 40%;
+    top: 35%;
     width: 60%;
   }
 }
@@ -93,8 +93,22 @@
   {
     .cd 
     {
-      top: 25%;
+      top: 28%;
       width: 60%;
     }
   }
 }
+
+
+@media screen and (max-width: 400px)
+{
+  .album-container
+  {
+    .cd 
+    {
+      top: 20%;
+      width: 50%;
+    }
+  }
+}
+

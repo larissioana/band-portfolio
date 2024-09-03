@@ -10,8 +10,6 @@ import img9 from '../../assets/10.jpg'
 import img10 from '../../assets/11.jpg'
 import img11 from '../../assets/12.jpg'
 import img12 from '../../assets/13.jpg'
-import img13 from '../../assets/14.jpg'
-import img14 from '../../assets/15.jpg'
 import img15 from '../../assets/16.jpg'
 import img16 from '../../assets/17.jpg'
 import img17 from '../../assets/18.jpg'
@@ -39,6 +37,8 @@ import img47 from '../../assets/48.jpg';
 import img48 from '../../assets/49.jpg';
 import { motion } from 'framer-motion';
 import ScrollToTop from '../scrollToTop/ScrollToTop';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const galleryImages = [
     img45,
@@ -125,13 +125,28 @@ const Gallery = () => {
         setImageKey((prevKey) => prevKey + 1);
     }, [currentImageIndex]);
 
-
+    const AnimatedImage = motion.div;
     return (
         <>
             <div className="gallery-container">
                 {
                     galleryImages.map((gallery, index) => {
-                        return <motion.img
+                        return <AnimatedImage
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            key={index}
+                            transition={{ duration: 2 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            onClick={() => openModal(index)}
+                        >
+                            <LazyLoadImage
+                                src={gallery}
+                                alt="Behemoth Gallery"
+                                className="image"
+                            />
+                        </AnimatedImage>
+                        {/* <MotionLazyLoadImage
+                            effect="blur"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 2 }}
@@ -141,7 +156,7 @@ const Gallery = () => {
                             className="image"
                             alt="Behemoth gallery"
                             onClick={() => openModal(index)}
-                        />
+                        /> */}
                     })
                 }
                 {

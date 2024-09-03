@@ -17,7 +17,9 @@ const Footer = () => {
                                 <a href="https://www.behemoth.pl/" target="_blank">Visit Behemoth's -  Official Website Here</a>
                             </p>
                             :
-                            <p>Visit Behemoth's -  </p>
+                            <p style={{
+                                borderBottom: "1.5px outset #FFF"
+                            }}>Visit Behemoth's -  </p>
                     }
                 </div>
                 <div className="right">

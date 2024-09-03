@@ -58,7 +58,7 @@ const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>
                     <Link to="/music">Music</Link>
-                    <Link to="/tour-dates">Tour </Link>
+                    <Link to="/tour">Tour </Link>
                 </div>
             }
         </nav >

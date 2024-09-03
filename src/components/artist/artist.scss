@@ -15,7 +15,7 @@
     h2 
     {
         text-transform: uppercase;
-        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        font-size: clamp(1rem, 2vw, 1.4rem);
     }
 }
 
@@ -25,6 +25,7 @@
     {
     justify-content: center;
     gap: 6rem;
+    padding: 0;
     
     }
 }

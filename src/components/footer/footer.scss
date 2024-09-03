@@ -15,7 +15,7 @@
             a 
             {
                 text-decoration: none;
-                font-size: 1.1rem;
+                font-size: clamp(.9rem, 2vw, 1.1rem);
                 color: inherit;
                 border-bottom: 1.5px outset #fff;
             }

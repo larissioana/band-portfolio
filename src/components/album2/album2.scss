@@ -87,3 +87,22 @@
         
     }
 }
+
+@media screen and (max-width: 460px)
+{
+  .album-tracklist
+    {
+        .songs 
+        {
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+
+            p 
+            {
+                text-align: start;
+                
+            }
+        }
+    }
+}
