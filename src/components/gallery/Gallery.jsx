@@ -179,6 +179,7 @@ const Gallery = () => {
                                     src={galleryImages[currentImageIndex]}
                                     alt="Full Screen"
                                     className="main-image"
+                                    loading='lazy'
                                     key={imageKey}
                                 />
                             </div>

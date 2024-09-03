@@ -16,7 +16,7 @@ const Banner = () => {
                 className="banner-container"
             >
 
-                <LazyLoadImage effect="blur" src={bannerImg} alt='banner' loading="lazy" width="100%" height="100%" placeholderSrc="../../assets/Behemoth_TheSatanist_02_87eb5bb7-5932-4431-956a-6a0c432dc949 copy 2.png" />
+                <LazyLoadImage effect="blur" src={bannerImg} alt='banner' loading="lazy" width="100%" height="100%" />
             </motion.div>
         </>
     )
