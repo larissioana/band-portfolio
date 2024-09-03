@@ -125,6 +125,15 @@ const Gallery = () => {
         setImageKey((prevKey) => prevKey + 1);
     }, [currentImageIndex]);
 
+    useEffect(() => {
+
+        const preloadImage = (src) => {
+            const img = new Image();
+            img.src = src;
+        }
+        galleryImages.forEach(preloadImage);
+    }, [galleryImages])
+
     const AnimatedImage = motion.div;
     return (
         <>

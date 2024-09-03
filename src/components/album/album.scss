@@ -75,7 +75,6 @@
 {
   .album-container 
   {
-    background-color: red;
     .album
     {
       width: 100%;
@@ -125,6 +124,7 @@
     {
       top: 15%;
       width: 60%;
+      display: none;
     }
   }
 }
