@@ -16,7 +16,7 @@ const Home = ({ isMobileNavOpen }) => {
             opacity: isMobileNavOpen ? ".3" : "1",
         }}>
             <Artist title={"Behemoth"} subTitle={"Festival Gallery"} />
-            <Banner />
+            {/*  <Banner /> */}
             <Gallery />
         </div>
     )

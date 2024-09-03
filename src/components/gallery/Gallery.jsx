@@ -1,5 +1,6 @@
 import './gallery.scss';
 import { useEffect, useState } from 'react';
+import img from '../../assets/4.jpg';
 import img1 from '../../assets/2.jpg'
 import img4 from '../../assets/5.jpg'
 import img5 from '../../assets/6.jpg'
@@ -39,8 +40,9 @@ import { motion } from 'framer-motion';
 import ScrollToTop from '../scrollToTop/ScrollToTop';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
+import { Blurhash } from 'react-blurhash';
 const galleryImages = [
+    img,
     img45,
     img24,
     img1,
@@ -125,15 +127,13 @@ const Gallery = () => {
         setImageKey((prevKey) => prevKey + 1);
     }, [currentImageIndex]);
 
-    useEffect(() => {
+    const [imageLoaded, setImageLoaded] = useState({});
 
-        const preloadImage = (src) => {
-            const img = new Image();
-            img.src = src;
-        }
-        galleryImages.forEach(preloadImage);
-    }, [galleryImages])
+    const handleImageLoad = (index) => {
+        setImageLoaded((prev) => ({ ...prev, [index]: true }));
+    };
 
+    const singleBlurhash = "L69=$^of0g|HXmS29]of0~nP^4TI";
     const AnimatedImage = motion.div;
     return (
         <>
@@ -148,8 +148,20 @@ const Gallery = () => {
                             viewport={{ once: false, amount: 0.3 }}
                             onClick={() => openModal(index)}
                         >
-                            <LazyLoadImage
+                            {!imageLoaded[index] && (
+                                <Blurhash
+                                    hash={singleBlurhash}
+                                    width="100%"
+                                    height="100%"
+                                    resolutionX={32}
+                                    resolutionY={32}
+                                    punch={1}
+                                />
+                            )}
+                            <img
                                 src={gallery}
+                                style={{ display: imageLoaded[index] ? 'block' : 'none' }}
+                                onLoad={() => handleImageLoad(index)}
                                 alt="Behemoth Gallery"
                                 className="image"
                             />
