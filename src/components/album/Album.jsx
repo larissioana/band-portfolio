@@ -6,11 +6,11 @@ import Artist from '../artist/Artist'
 const Album = () => {
     return (
         <div className="album-container">
-            <Artist title="Behemoth" subTitle={"The Satanist"} />
             <div className="album">
                 <img src={img1} alt="Album" className="album-image" />
                 <img src={img2} alt="CD" className="cd" />
             </div>
+            <Artist title="Behemoth" subTitle={"The Satanist"} />
         </div>
 
     )
