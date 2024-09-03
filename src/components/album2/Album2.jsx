@@ -2,7 +2,8 @@ import './album2.scss';
 import album from '../../assets/66479 copy.png';
 import cd from '../../assets/66479 copy 2.png'
 import Artist from '../artist/Artist';
-import { useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const tracklist = [
     {
@@ -54,7 +55,7 @@ const Album2 = () => {
             <Artist title="Behemoth" subTitle={"Opvs Contra Natvram"} />
             <div className="album-container2">
                 <div className="album2">
-                    <img src={album} alt="Album" className="album-image2" />
+                    <LazyLoadImage effect="blur" src={album} alt="Album" className="album-image2" />
                     <img src={cd} alt="CD" className="cd2" />
                 </div>
             </div>
