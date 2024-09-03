@@ -18,7 +18,7 @@ const Footer = () => {
                             </p>
                             :
                             <p style={{
-                                borderBottom: "1.5px outset #FFF"
+                                borderBottom: "1.5px outset #FFF",
                             }}>Visit Behemoth's -  </p>
                     }
                 </div>
@@ -27,11 +27,11 @@ const Footer = () => {
                         isHomeOrShop ?
                             <>
 
-                                <p>{location.pathname === '/' ? "Photos by" : "photo by"}</p>
+                                <p></p>
                                 <p>
                                     <a href="https://miluta.ro/ro/" target="_blank">
 
-                                        Miluță Flueraș.
+                                    {location.pathname === '/' ? "Photos by" : "photo by"} Miluță Flueraș.
                                     </a>
                                 </p>
                             </>

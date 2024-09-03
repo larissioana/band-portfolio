@@ -41,6 +41,7 @@ import ScrollToTop from '../scrollToTop/ScrollToTop';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Blurhash } from 'react-blurhash';
+import Modal from '../modal/Modal';
 const galleryImages = [
     img,
     img45,
@@ -85,6 +86,9 @@ const Gallery = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [sliderStartIndex, setSliderStartIndex] = useState(0);
     const [imageKey, setImageKey] = useState(0);
+    const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState([]);
+    const [overlayVisible, setOverlayVisible] = useState(true);
 
     const nextImage = () => {
         const newIndex = (currentImageIndex + 1) % galleryImages.length;
@@ -127,18 +131,38 @@ const Gallery = () => {
         setImageKey((prevKey) => prevKey + 1);
     }, [currentImageIndex]);
 
-    const [imageLoaded, setImageLoaded] = useState([]);
+
+
+    useEffect(() => {
+        if (imageLoaded.length === galleryImages.length) {
+            setAllImagesLoaded(true);
+        }
+    }, [imageLoaded]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setOverlayVisible(false);
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleImageLoad = (index) => {
-        setImageLoaded((prev) => ({ ...prev, [index]: true }));
+        setImageLoaded((prev) => [...prev, index]);
     };
-
     const singleBlurhash = "L69=$^of0g|HXmS29]of0~nP^4TI";
     const AnimatedImage = motion.div;
 
 
     return (
         <>
+            {overlayVisible && (
+                <div className="overlay">
+                    <div className="overlay-content">
+                        <p>This is not Behemoth's official website. <a href="https://www.behemoth.pl/" target="_blank">Go to official website</a></p>
+                    </div>
+                </div>
+            )}
             <div className="gallery-container">
                 {
                     galleryImages.map((gallery, index) => {
@@ -149,12 +173,33 @@ const Gallery = () => {
                             transition={{ duration: 2 }}
                             viewport={{ once: false, amount: 0.3 }}
                             onClick={() => openModal(index)}
+                            style={{
+                                display: overlayVisible ? "none" : "flex"
+                            }}
                         >
-                            <LazyLoadImage
-                                effect="blur"
+                            {
+                                !imageLoaded[index] && (
+                                    <Blurhash
+                                        hash="L69=$^of0g|HXmS29]of0~nP^4TI"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ position: 'absolute', top: 0, left: 0 }}
+                                    />
+                                )}
+                            <img
                                 src={gallery}
                                 alt="Behemoth Gallery"
                                 className="image"
+                                onLoad={() => handleImageLoad(index)}
+                                style={{
+                                    position: imageLoaded[index] ? 'relative' : 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: 'auto',
+                                    opacity: imageLoaded[index] ? 1 : 0,
+                                    transition: 'opacity 0.5s ease-in-out',
+                                }}
                             />
                         </AnimatedImage>
                         {/* <MotionLazyLoadImage
@@ -173,67 +218,18 @@ const Gallery = () => {
                 }
                 {
                     isModalOpen && (
-                        <div className="modal">
-                            <span onClick={closeModal} className="close-btn">
-                                ×
-                            </span>
-                            <div className="modal-content">
-                                <img
-                                    src={galleryImages[currentImageIndex]}
-                                    alt="Full Screen"
-                                    className="main-image"
-                                    loading='lazy'
-                                    key={imageKey}
-                                />
-                            </div>
-                            <div className="buttons">
-                                <span
-                                    onClick={prevImage}
-                                    className="material-symbols-outlined prev-btn"
-                                >
-                                    arrow_back_ios
-                                </span>
-                                {
-                                    currentImageIndex < galleryImages.length - 1 &&
-
-                                    <span
-                                        onClick={nextImage}
-                                        className="material-symbols-outlined next-btn"
-                                    >
-                                        arrow_forward_ios
-                                    </span>
-                                }
-                            </div>
-                            <div className="slider-controls">
-                                <span
-                                    onClick={showPrevImages}
-                                    className="material-symbols-outlined prev-btn"
-                                >
-                                    arrow_back_ios
-                                </span>
-                                {
-                                    currentImageIndex < galleryImages.length - 1 &&
-                                    <span
-                                        onClick={showNextImages}
-                                        className="material-symbols-outlined next-btn"
-                                    >
-                                        arrow_forward_ios
-                                    </span>
-                                }
-                            </div>
-                            <div className="thumbnail-slider">
-                                {
-                                    galleryImages.slice(sliderStartIndex, sliderStartIndex + 6).map((image, index) => (
-                                        <img
-                                            key={index}
-                                            src={image}
-                                            alt={`Thumbnail ${index}`}
-                                            className={`thumbnail ${currentImageIndex === sliderStartIndex + index ? 'active' : ''}`}
-                                            onClick={() => setCurrentImageIndex(sliderStartIndex + index)}
-                                        />
-                                    ))}
-                            </div>
-                        </div>
+                        <Modal
+                            closeModal={closeModal}
+                            galleryImages={galleryImages}
+                            imageKey={imageKey}
+                            prevImage={prevImage}
+                            nextImage={nextImage}
+                            currentImageIndex={currentImageIndex}
+                            showNextImages={showNextImages}
+                            showPrevImages={showPrevImages}
+                            setCurrentImageIndex={setCurrentImageIndex}
+                            sliderStartIndex={sliderStartIndex}
+                        />
                     )}
             </div>
         </>
