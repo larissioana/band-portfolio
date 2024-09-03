@@ -36,6 +36,7 @@
         font-size: clamp(2.5rem, 3vw, 3rem);
         cursor: pointer;
         color: #fff;
+        z-index: 10;
     }
     
     .main-image {
