@@ -115,16 +115,20 @@
     justify-content: center;
     z-index: 1000;
     color: #fff;
+    gap: 1rem;
     text-align: center;
 }
 
 .overlay-content p {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    line-height: 3rem;
 }
 
 .overlay-content a {
     color: #fff;
+    padding-top: 1rem;
+    line-height: 2rem;;
     text-decoration: underline;
 }
 

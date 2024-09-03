@@ -142,7 +142,7 @@ const Gallery = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setOverlayVisible(false);
-        }, 5000);
+        }, 4000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -150,19 +150,19 @@ const Gallery = () => {
     const handleImageLoad = (index) => {
         setImageLoaded((prev) => [...prev, index]);
     };
-    const singleBlurhash = "L69=$^of0g|HXmS29]of0~nP^4TI";
-    const AnimatedImage = motion.div;
 
+    const AnimatedImage = motion.div;
 
     return (
         <>
-            {overlayVisible && (
-                <div className="overlay">
-                    <div className="overlay-content">
-                        <p>This is not Behemoth's official website. <a href="https://www.behemoth.pl/" target="_blank">Go to official website</a></p>
+            {
+                overlayVisible && (
+                    <div className="overlay">
+                        <div className="overlay-content">
+                            <p>This is not Behemoth's official website. <a href="https://www.behemoth.pl/" target="_blank">Go to official website</a></p>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
             <div className="gallery-container">
                 {
                     galleryImages.map((gallery, index) => {
