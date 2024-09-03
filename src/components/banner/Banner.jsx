@@ -16,7 +16,7 @@ const Banner = () => {
                 className="banner-container"
             >
 
-                <LazyLoadImage effect="blur" src={bannerImg} alt='banner' />
+                <LazyLoadImage effect="blur" src={bannerImg} alt='banner' loading="lazy" />
             </motion.div>
         </>
     )
