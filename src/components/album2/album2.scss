@@ -81,7 +81,7 @@
         }
             .cd2 
             {
-               display: none;
+             top: 3%;
                
             }
         
@@ -105,4 +105,16 @@
             }
         }
     }
+}
+
+
+@media screen and (max-width: 375px)
+{
+  .album-container2
+  {
+    .cd2
+    {
+        top: 2%;
+    }
+  }
 }

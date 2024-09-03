@@ -58,7 +58,6 @@ const Music = ({ isMobileNavOpen }) => {
                 height: "120vh",
                 zIndex: "10",
                 position: "relative",
-                marginTop: "0rem"
 
             }}>
                 <Album2 />
@@ -69,8 +68,8 @@ const Music = ({ isMobileNavOpen }) => {
                     display: "flex",
                     alignItems: "center",
                     background: "rgb(2, 2, 2)",
-                    position: "relative",
-                    zIndex: "10"
+                    zIndex: "10",
+                    position: "relative"
                 }}
             >
                 <Album />

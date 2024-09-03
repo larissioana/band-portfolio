@@ -97,7 +97,7 @@
 {
   .album-container
   {
-    display: none;
+
     .cd 
     {
       top: 28%;
@@ -112,8 +112,34 @@
   {
   .cd 
   {
-    top: 20%;
+    top: 23%;
   }
   }
 }
+
+@media screen and (max-width: 300px)
+{
+  .album-container
+  {
+  .cd 
+  {
+    top: 15%;
+  }
+  }
+}
+
+
+
+
+@media screen and (max-width: 300px)
+{
+  .album-container
+  {
+  .cd 
+  {
+    top: 15%;
+  }
+  }
+}
+
 
