@@ -85,8 +85,6 @@ const Gallery = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [sliderStartIndex, setSliderStartIndex] = useState(0);
-    const [imageKey, setImageKey] = useState(0);
-    const [allImagesLoaded, setAllImagesLoaded] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(new Set());
     const [overlayVisible, setOverlayVisible] = useState(true);
 
@@ -117,123 +115,83 @@ const Gallery = () => {
         setSliderStartIndex(newSliderStartIndex);
     };
 
-    const showNextImages = () => {
-        setSliderStartIndex((prevIndex) =>
-            Math.min(prevIndex + 6, galleryImages.length - 6)
-        );
+    const handleImageLoad = (index) => {
+        setImageLoaded(prev => new Set(prev).add(index));
     };
-
-    const showPrevImages = () => {
-        setSliderStartIndex((prevIndex) => Math.max(prevIndex - 6, 0));
-    };
-    useEffect(() => {
-
-        setImageKey((prevKey) => prevKey + 1);
-    }, [currentImageIndex]);
-
-
-
-    useEffect(() => {
-        if (imageLoaded.size === galleryImages.length) {
-            setAllImagesLoaded(true);
-        }
-    }, [imageLoaded])
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setOverlayVisible(false);
-        }, 4000);
+        }, 5000);
 
         return () => clearTimeout(timer);
     }, []);
-
-    const handleImageLoad = (index) => {
-        setImageLoaded((prev) => [...prev, index]);
-    };
 
     const AnimatedImage = motion.div;
 
     return (
         <>
-            {
-                overlayVisible && (
-                    <div className="overlay">
-                        <div className="overlay-content">
-                            <p>This is not Behemoth's official website. <a href="https://www.behemoth.pl/" target="_blank">Go to official website</a></p>
-                        </div>
+            {overlayVisible && (
+                <div className="overlay">
+                    <div className="overlay-content">
+                        <p>This is not Behemoth's official website. <a href="https://www.behemoth.pl/" target="_blank" rel="noopener noreferrer">Go to official website</a></p>
                     </div>
-                )}
+                </div>
+            )}
             <div className="gallery-container">
-                {
-                    galleryImages.map((gallery, index) => {
-                        return <AnimatedImage
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            key={index}
-                            transition={{ duration: 2 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            onClick={() => openModal(index)}
-                            style={{
-                                display: overlayVisible ? "none" : "flex"
-                            }}
-                        >
-                            {
-                                !imageLoaded[index] && (
-                                    <Blurhash
-                                        hash="L69=$^of0g|HXmS29]of0~nP^4TI"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ position: 'absolute', top: 0, left: 0 }}
-                                    />
-                                )}
-                            <img
-                                src={gallery}
-                                alt="Behemoth Gallery"
-                                className="image"
-                                onLoad={() => handleImageLoad(index)}
-                                style={{
-                                    position: imageLoaded[index] ? 'relative' : 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: 'auto',
-                                    opacity: imageLoaded[index] ? 1 : 0,
-                                    transition: 'opacity 0.5s ease-in-out',
-                                }}
+                {galleryImages.map((gallery, index) => (
+                    <AnimatedImage
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        onClick={() => openModal(index)}
+                        style={{
+                            display: overlayVisible ? "none" : "flex",
+                            position: 'relative',
+                        }}
+                    >
+                        {!imageLoaded.has(index) && (
+                            <Blurhash
+                                hash="L69=$^of0g|HXmS29]of0~nP^4TI"
+                                width="100%"
+                                height="100%"
+                                style={{ position: 'absolute', top: 0, left: 0 }}
                             />
-                        </AnimatedImage>
-                        {/* <MotionLazyLoadImage
-                            effect="blur"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 2 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            key={index}
+                        )}
+                        <img
                             src={gallery}
+                            alt="Behemoth Gallery"
                             className="image"
-                            alt="Behemoth gallery"
-                            onClick={() => openModal(index)}
-                        /> */}
-                    })
-                }
-                {
-                    isModalOpen && (
-                        <Modal
-                            closeModal={closeModal}
-                            galleryImages={galleryImages}
-                            imageKey={imageKey}
-                            prevImage={prevImage}
-                            nextImage={nextImage}
-                            currentImageIndex={currentImageIndex}
-                            showNextImages={showNextImages}
-                            showPrevImages={showPrevImages}
-                            setCurrentImageIndex={setCurrentImageIndex}
-                            sliderStartIndex={sliderStartIndex}
+                            onLoad={() => handleImageLoad(index)}
+                            style={{
+                                position: 'relative',
+                                width: '100%',
+                                height: 'auto',
+                                opacity: imageLoaded.has(index) ? 1 : 0,
+                                transition: 'opacity 0.5s ease-in-out',
+                            }}
                         />
-                    )}
+                    </AnimatedImage>
+                ))}
+                {isModalOpen && (
+                    <Modal
+                        closeModal={closeModal}
+                        galleryImages={galleryImages}
+                        prevImage={prevImage}
+                        nextImage={nextImage}
+                        currentImageIndex={currentImageIndex}
+                        setCurrentImageIndex={setCurrentImageIndex}
+                        sliderStartIndex={sliderStartIndex}
+                        showNextImages={() => setSliderStartIndex(prev => Math.min(prev + 6, galleryImages.length - 6))}
+                        showPrevImages={() => setSliderStartIndex(prev => Math.max(prev - 6, 0))}
+                        imageKey={currentImageIndex} // Make sure the key updates with the image index
+                    />
+                )}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Gallery
