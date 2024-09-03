@@ -11,7 +11,7 @@ const ScrollToTop = () => {
 
     return (
         <button className="scroll-to-top-btn" >
-            <span class="material-symbols-outlined" onClick={scrollTop}>
+            <span className="material-symbols-outlined" onClick={scrollTop}>
                 arrow_circle_up
             </span>
         </button>

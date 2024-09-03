@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './navigation.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
     const [scrolling, setScrolling] = useState(false);
@@ -16,24 +16,12 @@ const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
         }
     };
 
-
-    const handleScroll = () => {
-        if (window.scrollY > 100) {
-            setScrolling(true);
-        } else {
-            setScrolling(false);
-        }
-    };
-
     useEffect(() => {
         document.addEventListener("click", handleClickOutside);
-        window.addEventListener("scroll", handleScroll);
         return () => {
             document.removeEventListener("click", handleClickOutside)
-            window.removeEventListener("scroll", handleScroll)
         }
     }, []);
-    const location = useLocation();
 
     return (
         <nav className="navigation" ref={navRef}>
@@ -61,7 +49,7 @@ const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
                     <Link to="/tour">Tour </Link>
                 </div>
             }
-        </nav >
+        </nav>
     )
 }
 

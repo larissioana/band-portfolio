@@ -4,13 +4,23 @@ import { motion } from 'framer-motion'
 import { pageAnimation } from '../../animation';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Banner = () => {
     const [loaded, setLoaded] = useState(false);
     const handleLoad = () => {
         setLoaded(true);
-    }
+    };
+
+    const preloadImg = (src) => {
+        const img = new Image();
+        img.src = src;
+    };
+
+    useEffect(() => {
+        preloadImg(bannerImg);
+    });
+
     return (
         <motion.div
             variants={pageAnimation}

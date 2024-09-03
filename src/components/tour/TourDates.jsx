@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 const tourDates = [
     {
+        id: 1,
         date: "Apr 4 Fri",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -12,6 +13,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 2,
         date: "Apr 5 Sat",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -19,6 +21,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 3,
         date: "Apr 6 Sun",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -26,6 +29,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 4,
         date: "Apr 8 Tue",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -33,6 +37,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 5,
         date: "Apr 11 Fri",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -40,6 +45,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 6,
         date: "Apr 12 Sat",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -47,6 +53,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 7,
         date: "Apr 13 Sun",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -54,6 +61,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 8,
         date: "Apr 15 Tue",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -61,6 +69,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 9,
         date: "Apr 16 Wed",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -68,6 +77,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 10,
         date: "Apr 18 Fri",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -75,6 +85,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 11,
         date: "Apr 22 Tue",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -82,6 +93,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 12,
         date: "Apr 23 Wed",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -89,6 +101,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 13,
         date: "Apr 25 Fri",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -96,6 +109,7 @@ const tourDates = [
         tickets: ["Tickets", "VIP", "RSVP"]
     },
     {
+        id: 14,
         date: "Apr 27 Sun",
         name: "The Unholy Trinity 2025 @ 7:00pm",
         title: "w/Rotting Christ, Satyricon",
@@ -125,9 +139,9 @@ const TourDates = ({ isMobileNavOpen }) => {
             }}>
             <div className="dates">
                 {
-                    tourDates.map((tour, index) => {
-                        const { date, name, title, location, tickets } = tour;
-                        return <div key={index} className="tours">
+                    tourDates.map((tour) => {
+                        const { date, name, title, location, tickets, id } = tour;
+                        return <div key={id} className="tours">
                             <p className="date"> {date}</p>
                             <div className="name-of-tour">
                                 <p className="name">{name}</p>
@@ -135,9 +149,10 @@ const TourDates = ({ isMobileNavOpen }) => {
                             </div>
                             <p className="location">{location}</p>
                             <div className="tickets">
-                                {tickets.map((ticket, index) => {
-                                    return <button key={index}>{ticket}</button>
-                                })}
+                                {
+                                    tickets.map((ticket, index) => {
+                                        return <button key={index}>{ticket}</button>
+                                    })}
                             </div>
                         </div>
                     })

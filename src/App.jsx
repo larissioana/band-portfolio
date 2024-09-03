@@ -13,7 +13,7 @@ function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       <Navigation setIsMobileNavOpen={setIsMobileNavOpen} isMobileNavOpen={isMobileNavOpen} />
       <Routes>
         <Route path="/" element={<Home isMobileNavOpen={isMobileNavOpen} />} />
