@@ -150,28 +150,11 @@ const Gallery = () => {
                             viewport={{ once: false, amount: 0.3 }}
                             onClick={() => openModal(index)}
                         >
-                            {!imageLoaded[index] && (
-                                <Blurhash
-                                    hash="L69=$^of0g|HXmS29]of0~nP^4TI"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ position: 'absolute', top: 0, left: 0 }}
-                                />
-                            )}
-                            <img
+                            <LazyLoadImage
+                                effect="blur"
                                 src={gallery}
                                 alt="Behemoth Gallery"
                                 className="image"
-                                onLoad={() => handleImageLoad(index)}
-                                style={{
-                                    position: imageLoaded[index] ? 'relative' : 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: 'auto',
-                                    opacity: imageLoaded[index] ? 1 : 0,
-                                    transition: 'opacity 0.5s ease-in-out',
-                                }}
                             />
                         </AnimatedImage>
                         {/* <MotionLazyLoadImage
