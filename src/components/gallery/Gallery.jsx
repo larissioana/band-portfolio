@@ -145,7 +145,7 @@ const Gallery = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 1 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0.1 }}
                         onClick={() => openModal(index)}
                         style={{
                             display: overlayVisible ? "none" : "flex",
