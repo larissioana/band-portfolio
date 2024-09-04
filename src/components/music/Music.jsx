@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../../animation';
+import Artist from '../artist/Artist';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,10 +70,13 @@ const Music = ({ isMobileNavOpen }) => {
                     alignItems: "center",
                     background: "rgb(2, 2, 2)",
                     zIndex: "10",
-                    position: "relative"
+                    position: "relative",
+                    paddingTop: "6rem"
                 }}
             >
+
                 <Album />
+
             </div>
         </motion.div >
     )

@@ -2,18 +2,67 @@
 .album-container
 {
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 50%;
   perspective: 1000px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-container
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 4rem;
+
+  .album-tracklist2
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 2rem;
+
+    .songs2
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        p 
+        {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            text-transform: capitalize;
+        }
+    }
+  }
+
+}
+
+.album-title
+{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 6%;
+  padding: 0rem 3rem;
+  z-index: 10;
+
+  h1 
+  {
+    text-transform: uppercase;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+  }
 }
   
 .album
 {
   position: relative;
-  width: 80%;
+  width: 40%;
   height: 100%;
   z-index: 1;
   transform-style: preserve-3d;
@@ -31,7 +80,7 @@
   position: absolute;
   left: 50%;
   width: 65%;
-  top: 75%;
+  top: 70%;
   transform: translate(-75%, -50%) rotate(0deg);
   height: auto;
   transform-origin:center; 
@@ -72,13 +121,37 @@
     }
 }
 
+@media screen and (max-width: 1200px)
+{
+    .album-container
+    {
+        .cd
+        {
+          top: 55%;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    .album-container
+    {
+      
+        .cd
+        {
+          top: 35%;
+        }
+    }
+}
+ 
+
 @media screen and (max-width: 868px)
 {
   .album-container 
   {
     .album
     {
-      width: 100%;
+      
 
       .album-image
       {
@@ -93,52 +166,15 @@
 }
 }
 
-@media screen and (max-width: 600px)
+@media screen and (max-width: 700px)
 {
   .album-container
   {
 
     .cd 
     {
-      top: 28%;
-      width: 60%;
+      display: none;
     }
-  }
-}
-
-@media screen and (max-width: 500px)
-{
-  .album-container
-  {
-  .cd 
-  {
-    top: 28%;
-  }
-  }
-}
-
-@media screen and (max-width: 300px)
-{
-  .album-container
-  {
-  .cd 
-  {
-    top: 15%;
-  }
-  }
-}
-
-
-
-
-@media screen and (max-width: 300px)
-{
-  .album-container
-  {
-  .cd 
-  {
-    top: 15%;
-  }
   }
 }
 

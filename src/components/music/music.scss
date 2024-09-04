@@ -2,11 +2,18 @@
 {
     .album1-wrapper
     {
-        visibility: hidden;
+        
     }
 
     .album2-wrapper
     {
         height: 100vh;
     }
+}
+
+.album1-wrapper
+{
+    justify-content: space-between;
+    padding: 0rem 2rem;
+    flex-direction: column;
 }

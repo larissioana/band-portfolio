@@ -20,7 +20,7 @@ const tracklist = [
     },
     {
         song: 4,
-        title: "Ov My Herculean Exila"
+        title: "Ov My Herculean Exile"
     },
     {
         song: 5,
@@ -44,7 +44,7 @@ const tracklist = [
     },
     {
         song: 10,
-        title: "Vervs Christvs"
+        title: "Versvs Christvs"
     }
 ];
 
@@ -52,7 +52,6 @@ const Album2 = () => {
 
     return (
         <>
-            <Artist title="Behemoth" subTitle={"Opvs Contra Natvram"} />
             <div className="album-container2">
                 <div className="album2">
                     <img src={album} alt="Album" className="album-image2" />
@@ -70,6 +69,7 @@ const Album2 = () => {
                     })
                 }
             </div>
+            <Artist title="Behemoth" subTitle={"Opvs Contra Natvram"} />
         </>
     )
 }
