@@ -160,7 +160,7 @@
     }
   .cd
   {
-    top: 45%;
+    top: 40%;
     width: 60%;
   }
 }
@@ -173,9 +173,37 @@
 
     .cd 
     {
-      display: none;
+     top: 30%;
     }
   }
+}
+
+
+@media screen and (max-width: 500px)
+{
+    .album
+    {
+      
+      .cd 
+      {
+        top: 20%;
+      }
+    }
+}
+
+
+
+
+@media screen and (max-width: 440px)
+{
+    .album
+    {
+      
+      .cd 
+      {
+        top: 16%;
+      }
+    }
 }
 
 

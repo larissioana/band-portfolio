@@ -17,3 +17,12 @@
     padding: 0rem 2rem;
     flex-direction: column;
 }
+
+@media screen and (max-width: 440px)
+{
+    .album1-wrapper
+    {
+        height: 95vh!important;
+    }
+
+}
