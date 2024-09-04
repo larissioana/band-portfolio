@@ -136,7 +136,6 @@
 {
     .album-container
     {
-      
         .cd
         {
           top: 35%;
@@ -151,8 +150,6 @@
   {
     .album
     {
-      
-
       .album-image
       {
         width: 100%;
@@ -192,8 +189,6 @@
 }
 
 
-
-
 @media screen and (max-width: 440px)
 {
     .album
@@ -205,5 +200,34 @@
       }
     }
 }
+
+
+@media screen and (max-width: 390px)
+{
+    .album
+    {
+      width: 70%;
+      .cd 
+      {
+        top: 22%;
+      }
+    }
+}
+
+@media screen and (max-width: 335px)
+{
+    .album
+    {
+      width: 70%;
+      .cd 
+      {
+        top: 16%;
+      }
+    }
+}
+
+
+
+
 
 
