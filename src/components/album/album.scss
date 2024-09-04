@@ -106,6 +106,7 @@
   }
 } 
 
+
 @media screen and (max-width: 1300px)
 {
     .album-container
@@ -183,48 +184,11 @@
       
       .cd 
       {
-        top: 20%;
+        display: none;
       }
     }
 }
 
-
-@media screen and (max-width: 440px)
-{
-    .album
-    {
-      
-      .cd 
-      {
-        top: 16%;
-      }
-    }
-}
-
-
-@media screen and (max-width: 390px)
-{
-    .album
-    {
-      width: 70%;
-      .cd 
-      {
-        top: 22%;
-      }
-    }
-}
-
-@media screen and (max-width: 335px)
-{
-    .album
-    {
-      width: 70%;
-      .cd 
-      {
-        top: 16%;
-      }
-    }
-}
 
 
 
