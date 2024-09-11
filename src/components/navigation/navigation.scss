@@ -60,7 +60,12 @@
        }
         .burger 
         {
-            display: block;
+            gap: .3rem;
+            display: flex;
+            width: 3rem;
+            height: 2rem;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
 
             span 
@@ -68,6 +73,18 @@
                 font-size: 2rem;
                 font-weight: bold;
                 z-index: 99;
+            }
+
+            .line1,
+            .line2,
+            .line3 
+            {
+                width: 2rem;
+                height: .2rem;
+                background: #fff;
+                cursor: pointer;
+                z-index: 99;
+               
             }
         }
 

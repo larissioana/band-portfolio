@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css'
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/home/Home';
 import Navigation from './components/navigation/Navigation'
