@@ -76,7 +76,6 @@ const Music = ({ isMobileNavOpen }) => {
             >
 
                 <Album />
-
             </div>
         </motion.div >
     )

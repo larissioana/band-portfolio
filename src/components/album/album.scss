@@ -140,7 +140,18 @@
     {
         .cd
         {
-          top: 35%;
+          top: 45%;
+        }
+    }
+}
+
+@media screen and (max-width: 990px)
+{
+    .album-container
+    {
+        .cd
+        {
+          top: 45%;
         }
     }
 }
@@ -178,7 +189,7 @@
 }
 
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 550px)
 {
     .album
     {
