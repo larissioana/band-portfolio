@@ -54,8 +54,8 @@
     transform-origin: center; 
     z-index: -1;
     object-fit: cover;
-
     animation: slideOutCd 6s infinite ease-in-out;
+    -webkit-animation: slideOutCd 6s infinite ease-in-out;
 }
 
 @keyframes slideOutCd {
