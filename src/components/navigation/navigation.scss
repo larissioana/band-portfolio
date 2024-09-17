@@ -67,6 +67,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            z-index: 99;
 
             span 
             {
@@ -83,7 +84,6 @@
                 height: .2rem;
                 background: #fff;
                 cursor: pointer;
-                z-index: 99;
                
             }
         }
