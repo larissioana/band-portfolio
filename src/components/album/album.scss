@@ -84,25 +84,25 @@
   transform: translate(-75%, -50%) rotate(0deg);
   height: auto;
   transform-origin:center; 
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   z-index: -1;
   object-fit: cover;
   transform: translate(-50%, -50%);
   animation: rollOutCd 6s infinite ease-in-out;
   -webkit-animation: rollOutCd 6s infinite ease-in-out;
+  will-change: transform; 
 }
 
 @keyframes rollOutCd
 {
-  0%
-  {
+  0%{
     transform: translate(-50%, -50%) rotate(0deg); 
   }
   5%{
     transform: translate(-50%, -50%) rotate(0deg); 
   }
-  10%{
-    transform: translate(-50%, -50%) rotate(0deg); 
-  }
+
   50%{
     transform: translate(40%, -50%) rotate(180deg);
   }
@@ -127,7 +127,7 @@
     }
 }
 
-@media screen and (max-width: 1200px)
+ @media screen and (max-width: 1200px)
 {
     .album-container
     {
@@ -136,7 +136,7 @@
           top: 55%;
         }
     }
-}
+} 
 
 @media screen and (max-width: 1000px)
 {
