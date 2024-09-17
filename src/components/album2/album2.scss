@@ -61,18 +61,23 @@
 @keyframes slideOutCd {
     0% {
         transform: translateX(0%); 
+        -webkit-transform: translateX(0%); 
     }
     5%{
         transform: translateX(0%); 
+        -webkit-transform: translateX(0%); 
     }
     10%{
         transform: translateX(0%); 
+        -webkit-transform: translateX(0%); 
     }
     50% {
         transform: translateX(60%); 
+        -webkit-transform: translateX(60%); 
     }
     100% {
         transform: translateX(0%); 
+        -webkit-transform: translateX(0%); 
     }
 }
 
