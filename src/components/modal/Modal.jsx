@@ -1,5 +1,3 @@
-import './modal.scss';
-
 const Modal = ({
     closeModal,
     galleryImages,
@@ -37,7 +35,6 @@ const Modal = ({
                 </span>
                 {
                     currentImageIndex < galleryImages.length - 1 &&
-
                     <span
                         onClick={nextImage}
                         style={{
@@ -51,7 +48,6 @@ const Modal = ({
             <div className="slider-controls">
                 <span
                     onClick={showPrevImages}
-
                 >
                     {"<"}
                 </span>

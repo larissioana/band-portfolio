@@ -37,11 +37,9 @@ import img46 from '../../assets/47.jpg';
 import img47 from '../../assets/48.jpg';
 import img48 from '../../assets/49.jpg';
 import { motion } from 'framer-motion';
-import ScrollToTop from '../scrollToTop/ScrollToTop';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Blurhash } from 'react-blurhash';
 import Modal from '../modal/Modal';
+
 const galleryImages = [
     img,
     img45,
@@ -127,8 +125,6 @@ const Gallery = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    const AnimatedImage = motion.div;
-
     return (
         <>
             {overlayVisible && (
@@ -139,8 +135,8 @@ const Gallery = () => {
                 </div>
             )}
             <div className="gallery-container">
-                {galleryImages.map((gallery, index) => (
-                    <AnimatedImage
+                {galleryImages.map((gallery, index) => {
+                    return <motion.div
                         key={index}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -173,8 +169,8 @@ const Gallery = () => {
                                 transition: 'opacity 0.5s ease-in-out',
                             }}
                         />
-                    </AnimatedImage>
-                ))}
+                    </motion.div>
+                })}
                 {isModalOpen && (
                     <Modal
                         closeModal={closeModal}
@@ -186,10 +182,10 @@ const Gallery = () => {
                         sliderStartIndex={sliderStartIndex}
                         showNextImages={() => setSliderStartIndex(prev => Math.min(prev + 6, galleryImages.length - 6))}
                         showPrevImages={() => setSliderStartIndex(prev => Math.max(prev - 6, 0))}
-                        imageKey={currentImageIndex} // Make sure the key updates with the image index
+                        imageKey={currentImageIndex}
                     />
                 )}
-            </div>
+            </div >
         </>
     );
 };

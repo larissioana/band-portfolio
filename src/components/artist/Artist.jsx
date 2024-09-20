@@ -5,7 +5,7 @@ const Artist = ({ title, subTitle }) => {
     const location = useLocation();
     return (
         <div className="artist-container" style={{
-            top: location.pathname === "/music" ? "10%" : "50%"
+            top: location.pathname === "/music" ? "13%" : "50%"
         }}>
             <h2>{title}</h2>
             <h2>{subTitle}</h2>

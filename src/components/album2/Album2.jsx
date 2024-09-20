@@ -2,8 +2,6 @@ import './album2.scss';
 import album from '../../assets/66479 copy.png';
 import cd from '../../assets/66479 copy 2.png'
 import Artist from '../artist/Artist';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const tracklist = [
     {

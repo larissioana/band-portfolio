@@ -1,5 +1,4 @@
 import Artist from '../artist/Artist';
-import Banner from '../banner/Banner';
 import Gallery from '../gallery/Gallery';
 import { useEffect } from 'react';
 
@@ -16,7 +15,6 @@ const Home = ({ isMobileNavOpen }) => {
             opacity: isMobileNavOpen ? ".3" : "1",
         }}>
             <Artist title={"Behemoth"} subTitle={"Gallery"} />
-            {/*  <Banner /> */}
             <Gallery />
         </div>
     )

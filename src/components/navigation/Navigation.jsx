@@ -1,17 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './navigation.scss';
 import { Link } from 'react-router-dom';
 
 const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
-    const [scrolling, setScrolling] = useState(false);
     const navRef = useRef(null);
+    const burgerRef = useRef(null);
 
-    const handleMobileNav = () => {
-        setIsMobileNavOpen(!isMobileNavOpen);
+    const handleMobileNav = (e) => {
+        e.stopPropagation();
+        setIsMobileNavOpen((prev) => !prev);
     };
 
+
     const handleClickOutside = (event) => {
-        if (navRef.current && !navRef.current.contains(event.target)) {
+        if (
+            navRef.current &&
+            !navRef.current.contains(event.target) &&
+            burgerRef.current && !burgerRef.current.contains(event.target)
+        ) {
             setIsMobileNavOpen(false);
         }
     };
@@ -19,8 +25,8 @@ const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
     useEffect(() => {
         document.addEventListener("click", handleClickOutside);
         return () => {
-            document.removeEventListener("click", handleClickOutside)
-        }
+            document.removeEventListener("click", handleClickOutside);
+        };
     }, []);
 
     return (
@@ -29,21 +35,20 @@ const Navigation = ({ isMobileNavOpen, setIsMobileNavOpen }) => {
             <Link to="shop">Shop</Link>
             <Link to="music">Music</Link>
             <Link to="tour" >Tour </Link>
-            <div className="burger" onClick={handleMobileNav}>
+            <button className="burger" onClick={(handleMobileNav)} ref={burgerRef}>
                 {
-                    !isMobileNavOpen ?
-                        <>
-                            <div className="line1"></div>
-                            <div className="line2"></div>
-                            <div className="line3"></div>
-                        </>
+                    isMobileNavOpen ? <span>X</span>
                         :
-                        <span>X</span>
+                        <div className="burger-lines">
+                            <div className="line"></div>
+                            <div className="line"></div>
+                            <div className="line"></div>
+                        </div>
                 }
-            </div>
+            </button>
             {
                 isMobileNavOpen &&
-                <div className="mobile-menu show">
+                <div className="mobile-menu">
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>
                     <Link to="/music">Music</Link>

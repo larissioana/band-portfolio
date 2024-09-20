@@ -8,6 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     gap: 3rem;
     z-index: 99;
 
@@ -45,7 +46,7 @@
         flex-direction: column;
         margin-left: auto;
         display: none;
-        z-index: 99;
+        z-index: 10;
     }
 }
 
@@ -53,38 +54,36 @@
 {
     .navigation
     {
-        z-index: 99;
        a 
        {
         display: none;
        }
         .burger 
         {
-            gap: .3rem;
             display: flex;
-            width: 3rem;
-            height: 2rem;
+            gap: .3rem;
+            height: 3rem;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 99;
-
+            background: transparent;
+            width: 3rem;
+            border: none;
+           
             span 
             {
                 font-size: 2rem;
                 font-weight: bold;
-                z-index: 99;
+                z-index: 10;
+                color: #ebeaea;
             }
 
-            .line1,
-            .line2,
-            .line3 
-            {
+            .line {
                 width: 2rem;
                 height: .2rem;
-                background: #fff;
-                cursor: pointer;
-               
+                background-color: #ebeaea;
+                margin: 6px 0;
+                
             }
         }
 
@@ -97,18 +96,12 @@
             justify-content: center;
             align-items: center;
             transition: all .4s ease;
-            transform: translateX(100%);
         a 
         {
             display: flex;
             font-size: 1.2rem;
         }
           
-        }
-
-        .show 
-        {
-            transform: translateX(0%);
         }
 
     }
