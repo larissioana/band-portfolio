@@ -13,7 +13,7 @@
 .flex-container
 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   padding-top: 4rem;
 
@@ -48,7 +48,7 @@
   justify-content: space-between;
   width: 100%;
   position: absolute;
-  top: 6%;
+  top: 15%;
   padding: 0rem 3rem;
   z-index: 10;
 
@@ -80,7 +80,7 @@
   position: absolute;
   left: 50%;
   width: 65%;
-  top: 73%;
+  top: 74%;
   transform: translate(-75%, -50%) rotate(0deg);
   height: auto;
   transform-origin:center; 
@@ -126,7 +126,7 @@
       }
         .cd
         {
-          top: 50%;
+          top: 60%;
         }
     }
 }
@@ -137,7 +137,7 @@
     {
         .cd
         {
-          top: 55%;
+          top: 50%;
         }
     }
 } 
@@ -178,7 +178,7 @@
     }
   .cd
   {
-    top: 40%;
+    top: 35%;
     width: 60%;
   }
 }
@@ -197,7 +197,7 @@
 }
 
 
-@media screen and (max-width: 550px)
+@media screen and (max-width: 650px)
 {
     .album
     {

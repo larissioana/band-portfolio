@@ -12,6 +12,7 @@ body
 {
   overflow-x: hidden;
   background: rgb(2, 2, 2);
+
   font-family: "MedievalSharp", cursive;
   color: rgb(240, 237, 237);
   scroll-behavior: smooth;

@@ -67,6 +67,7 @@ const Music = ({ isMobileNavOpen }) => {
                 style={{
                     height: "100vh",
                     display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                     background: "rgb(2, 2, 2)",
                     zIndex: "10",
