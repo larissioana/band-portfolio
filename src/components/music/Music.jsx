@@ -72,7 +72,7 @@ const Music = ({ isMobileNavOpen }) => {
                     background: "rgb(2, 2, 2)",
                     zIndex: "10",
                     position: "relative",
-                    paddingTop: "6rem"
+                    paddingTop: "6rem",
                 }}
             >
 

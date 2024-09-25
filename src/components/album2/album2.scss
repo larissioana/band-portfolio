@@ -47,7 +47,7 @@
   
 .cd2 {
     position: absolute;
-    top: 10%;
+    top: 11%;
     left: 70%; 
     width: 40%;
     height: auto;
@@ -91,12 +91,30 @@
         }
             .cd2 
             {
-             top: 3%;
+             top: 5%;
                
             }
         
     }
 }
+
+@media screen and (max-width: 510px)
+{
+    .album-container2
+    {
+        .album-image2
+        {
+            width: 100%;
+        }
+            .cd2 
+            {
+             top: 2.5%;
+               
+            }
+        
+    }
+}
+
 
 @media screen and (max-width: 460px)
 {
@@ -115,10 +133,24 @@
             }
         }
     }
+
+    .album-container2
+    {
+        .album-image2
+        {
+            width: 100%;
+        }
+            .cd2 
+            {
+             top: 2%;
+               
+            }
+        
+    }
 }
 
 
-@media screen and (max-width: 375px)
+@media screen and (max-width: 396px)
 {
   .album-container2
   {
