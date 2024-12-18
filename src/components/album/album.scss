@@ -105,8 +105,7 @@
   animation-iteration-count: infinite;
 }
 
-@keyframes rollOutCd
-{
+@keyframes rollOutCd{
   0%{
     transform: translate(-50%, -50%) rotate(0deg); 
     -webkit-transform: translate(-50%, -50%) rotate(0deg); 
@@ -126,8 +125,7 @@
   }
 } 
 
-@-webkit-keyframes rollOutCd
-{
+@-webkit-keyframes rollOutCd{
   0%{
     transform: translate(-50%, -50%) rotate(0deg); 
     -webkit-transform: translate(-50%, -50%) rotate(0deg); 
