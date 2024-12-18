@@ -66,6 +66,7 @@
   height: 100%;
   z-index: 1;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
   
 .album-image
@@ -73,6 +74,7 @@
   width: 100%;
   height: auto;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
   
 .cd
