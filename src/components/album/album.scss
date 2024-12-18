@@ -8,6 +8,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .flex-container

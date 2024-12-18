@@ -6,6 +6,8 @@
     padding-top: 2rem;
     padding-right: 2rem;
     display: flex;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 .album-tracklist
