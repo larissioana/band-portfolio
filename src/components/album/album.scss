@@ -91,9 +91,16 @@
   z-index: -1;
   object-fit: cover;
   transform: translate(-50%, -50%);
-  animation: rollOutCd 6s infinite ease-in-out;
   -webkit-animation: rollOutCd 6s infinite ease-in-out;
-  will-change: transform; 
+  -webkit-animation-name: rollOutCd; /* Animation name */
+  -webkit-animation-duration: 6s; /* Animation duration */
+  -webkit-animation-timing-function: ease-in-out; /* Easing function */
+  -webkit-animation-iteration-count: infinite; /* Loop infinitely */
+
+  animation-name: rollOutCd;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 @keyframes rollOutCd

@@ -56,8 +56,17 @@
     transform-origin: center; 
     z-index: -1;
     object-fit: cover;
-    animation: slideOutCd 6s infinite ease-in-out;
-    -webkit-animation: slideOutCd 6s infinite ease-in-out;
+    animation-name: slideOutCd;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    /* Safari-specific properties */
+    -webkit-animation-name: slideOutCd;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    will-change: transform;
 }
 
 @keyframes slideOutCd {
